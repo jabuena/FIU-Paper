@@ -30,63 +30,67 @@
 
 
 \begin{document}
-\title{SIG Proceedings Paper in LaTeX Format}
-\titlenote{Produces the permission block, and copyright information}
-\subtitle{Extended Abstract}
+\title{Can you join the network? Survey of Bootstrapping techniques in NDNoT}
+% \titlenote{Produces the permission block, and copyright information}
+% \subtitle{Extended Abstract}
 
-\author{Firstname Lastname}
-\authornote{Note}
-\orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Affiliation}
-  \streetaddress{Address}
-  \city{City} 
-  \state{State} 
-  \postcode{Zipcode}
-}
-\email{email@domain.com}
+% \author{Firstname Lastname}
+% \authornote{Note}
+% \orcid{1234-5678-9012}
+% \affiliation{%
+%   \institution{Affiliation}
+%   \streetaddress{Address}
+%   \city{City} 
+%   \state{State} 
+%   \postcode{Zipcode}
+% }
+% \email{email@domain.com}
 
-\author{Firstname Lastname}
-\orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Affiliation}
-  \streetaddress{Address}
-  \city{City} 
-  \state{State} 
-  \postcode{Zipcode}
-}
-\email{email@domain.com}
+% \author{Firstname Lastname}
+% \orcid{1234-5678-9012}
+% \affiliation{%
+%   \institution{Affiliation}
+%   \streetaddress{Address}
+%   \city{City} 
+%   \state{State} 
+%   \postcode{Zipcode}
+% }
+% \email{email@domain.com}
 
-\author{Firstname Lastname}
-\orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Affiliation}
-}
-\email{email@domain.com}
+% \author{Firstname Lastname}
+% \orcid{1234-5678-9012}
+% \affiliation{%
+%   \institution{Affiliation}
+% }
+% \email{email@domain.com}
 
-\author{Firstname Lastname}
-\orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Affiliation}
-}
-\email{email@domain.com}
+% \author{Firstname Lastname}
+% \orcid{1234-5678-9012}
+% \affiliation{%
+%   \institution{Affiliation}
+% }
+% \email{email@domain.com}
 
-\author{Firstname Lastname}
-\orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Affiliation}
-}
-\email{email@domain.com}
+% \author{Firstname Lastname}
+% \orcid{1234-5678-9012}
+% \affiliation{%
+%   \institution{Affiliation}
+% }
+% \email{email@domain.com}
 
 
 % The default list of authors is too long for headers}
-\renewcommand{\shortauthors}{F. Lastname et al.}
+% \renewcommand{\shortauthors}{F. Lastname et al.}
 
 
 \begin{abstract}
-This paper provides a sample of a \LaTeX\ document which conforms,
-somewhat loosely, to the formatting guidelines for
-ACM SIG Proceedings.\footnote{This is an abstract footnote}
+
+  The rapid proliferation of sensors and their use in modern Internet of Things (IoT) environment has brought about a revolution in the way offices work.
+  Researchers have identified the benefits that a data-centric approach like Named Data Networking can provide in such a scenario.
+  The vast diversity of the sensors and the need for new services leads to the constant addition of newer devices making it an environment that is highly vulnerable to attacks. 
+  In this poster, we try to provide an overview of various techniques that can be used for bootstrapping trust to potentially ~(a) ensure legitimate sensors / devices join the network and ~(b) the device identifies the correct network to join.
+  An explorative effort in using a button-based approach to complete bootstrapping and the corresponding threat model and solution is discussed in this article.
+  
 \end{abstract}
 
 % %
@@ -133,7 +137,8 @@ ACM SIG Proceedings.\footnote{This is an abstract footnote}
 \maketitle
 
 \input{1-intro}
-
+\input{2-background}
+\input{3-taxonomy}
 
 \bibliographystyle{acm}
 \bibliography{refs} 
