@@ -8,7 +8,7 @@ This section identifies techniques that can be used in the design of onboarding 
 \subsubsection{Device Provision Protocol (DPP)}
 Seamless operations in a smart office involves communications among devices which are separated by small distances.
 In such scenarios, BLE acts as a viable option for device onboarding as against WiFi.
-sThe functioning of DPP [6] involves two devices: a configurator which broadcasts intent and an enrollee that responds to a broadcast when within the range.
+sThe functioning of DPP ~\cite{ifialliance} involves two devices: a configurator which broadcasts intent and an enrollee that responds to a broadcast when within the range.
 After a response to the broadcast, the devices move to an auxiliary channel via BLE and exchange cryptographic information.
 DPP operation is dependent on the configurator sending out a request packet on the auxiliary channel and the enrollee replying with the same auxiliary channel request information to successfully onboard.
 One of the main vulnerabilities of using BLE pairing is that it broadcasts messages openly to any device within range which makes them susceptible to Man in The Middle (MiTM) attacks.
