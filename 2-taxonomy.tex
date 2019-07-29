@@ -19,7 +19,7 @@ Any device within range can possibly eavesdrop on both device and obtain the boo
 
 \subsection{Buttons}
 \subsubsection{Button Enabled Device Association (BEDA)}
-The BEDA protocol~\cite{soriente2007beda} is reliant on physical buttons on two devices.
+The BEDA protocol ~\cite{soriente2007beda} is reliant on physical buttons on two devices.
 These buttons are integral to the protocol because it uses the duration of a pressed button which is used to generate a shared secret.
 However, this method presents a few vulnerabilities to replay attacks because hashes are not encrypted when they are sent out which lets an attacker pose as the sender by sending the hash to the original receiving device.
 
@@ -33,8 +33,7 @@ Magnetometer pairing ~\cite{jin2014magpairing} is technique of bootstrapping tha
 The HAPADEP protocol ~\cite{soriente2008hapadep} makes use of the sonic frequency of sound waves by using two devices that have microphones and speakers. During the initial phase, the target device will send its public key to a controlling device by encoding the key using a fast codec that results in audio that is nonsensical to humans. Afterwards the protocol will enter a second verification phase where each device will encode the information that was retrieved in the last phase using a slow codec. This creates a human audible tune that can be used to confirm only intended devices were connected. One method to perform a DoS attack is to play loud audio to disrupt the recording during the first phase. HAPADEP can also be prone to impersonation attacks, but that would require an attacker to have knowledge of the codec being used to decode and encode the public keys. 
 
 \subsubsection{Ultrasonic Pairing}
-As an OOB channel, using an ultrasonic frequency ~\cite{mayrhofer2007security} can present some complications for the security of bootstrapping. In order to securely pair two devices, they must be located in the same room without any third-party devices or physical obstacles in the vicinity. Successful pairing with ultrasonic frequencies is almost entirely dependent on location. If an attacker is in the same room, they would be able to mount a MiTM attack, impersonate another device, or eavesdrop on transmissions. The devices need to have clear line of sight with each other, otherwise it is possible that the sound waves will get distorted by physical obstacles or impersonated by an attacker. Ultrasound’s use as an OOB frequency for bootstrapping requires secondary safeguards to ensure security.
-
+As an OOB channel, using an ultrasonic frequency ~\cite{mayrhofer2007security} can present some complications for the security of bootstrapping. In order to securely pair two devices, they must be located in the same room without any third-party devices or physical obstacles in the vicinity. If an attacker is in the same room, they would be able to mount a MiTM attack, impersonate another device, or eavesdrop on transmissions. The devices need to have clear line of sight with each other, otherwise it is possible that the sound waves will get distorted by physical obstacles or impersonated by an attacker.
 
 \subsection{Vibration}
 \subsubsection{SYNCVIBE}
