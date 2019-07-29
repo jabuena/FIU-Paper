@@ -1,15 +1,31 @@
 \section{Bootstrapping Taxonomy}
 
-Out-of-band (OOB) channels are auxiliary to the main frequency of communication and are used as a means to bolster security. OOB channels are characterized by the uncommon or unused frequencies that the protocols used to communicate or share any cryptographic information they normally would not send on the 2.4 Ghz frequency range.
+Out-of-band (OOB) channels are auxiliary to the main frequency of communication and are used as a means to bolster security.
+OOB channels are characterized by the uncommon or unused frequencies that the protocols use to communicate or share any cryptographic information.
+This section identifies techniques that can be used in the design of onboarding protocols highlighting the security properties and vulnerabilities for each of them. 
 
 \subsection{Bluetooth Low Energy (BLE)}
 \subsubsection{Device Provision Protocol (DPP)}
-As a means for device onboarding, BLE is a viable alternative to Wifi in scenarios that do not require long range communication - not unlike an office. BLE lets a user send out a broadcast that states their intent to bootstrap with another device. The DPP requires two devices: a configurator that broadcasts intent and an enrollee within range that responds to a broadcast. When an enrollee does respond to a broadcast, the devices move to an auxiliary channel via BLE and exchange cryptographic information. One of the primary DPP characteristics is that the configurator sends out a request packet on the auxiliary channel and the enrollee must send back that same auxiliary channel request information to successfully onboard. One of the main vulnerabilities of using BLE pairing is its that broadcasts openly to any device within range. By broadcasting openly, the devices make themselves susceptible to Man in The Middle (MiTM) attacks. BLE itself does not have a proof of possession of the bootstrapping keys in the auxiliary channel. Any device within range can possibly eavesdrop on both device and obtain the bootstrapping keys.
+Seamless operations in a smart office involves communications among devices which are separated by small distances.
+In such scenarios, BLE acts as a viable option for device onboarding as against WiFi.
+sThe functioning of DPP involves two devices: a configurator which broadcasts intent and an enrollee that responds to a broadcast when within the range.
+After a response to the broadcast, the devices move to an auxiliary channel via BLE and exchange cryptographic information.
+DPP operation is dependent on the configurator sending out a request packet on the auxiliary channel and the enrollee replying with the same auxiliary channel request information to successfully onboard.
+One of the main vulnerabilities of using BLE pairing is that it broadcasts messages openly to any device within range which makes them susceptible to Man in The Middle (MiTM) attacks.
+BLE itself does not have a proof of possession of the bootstrapping keys in the auxiliary channel.
+Any device within range can possibly eavesdrop on both device and obtain the bootstrapping keys.
+
+
+%As a means for device onboarding, BLE is a viable alternative to Wifi in scenarios that do not require long range communication - not unlike an office. BLE lets a user send out a broadcast that states their intent to bootstrap with another device. The DPP requires two devices: a configurator that broadcasts intent and an enrollee within range that responds to a broadcast. When an enrollee does respond to a broadcast, the devices move to an auxiliary channel via BLE and exchange cryptographic information. One of the primary DPP characteristics is that the configurator sends out a request packet on the auxiliary channel and the enrollee must send back that same auxiliary channel request information to successfully onboard. One of the main vulnerabilities of using BLE pairing is its that broadcasts openly to any device within range. By broadcasting openly, the devices make themselves susceptible to Man in The Middle (MiTM) attacks. BLE itself does not have a proof of possession of the bootstrapping keys in the auxiliary channel. Any device within range can possibly eavesdrop on both device and obtain the bootstrapping keys.
 
 
 \subsection{Buttons}
 \subsubsection{Button Enabled Device Association (BEDA)}
-The BEDA protocol is reliant on physical buttons on two devices. These buttons are integral to the protocol because it uses the duration of a pressed button which is used to generate a shared secret This method presents a few vulnerabilities, however. The protocol is vulnerable to replay attacks because hashes are not encrypted when they are sent out which lets an attacker pose as the sender by sending the hash to the original receiving device.
+The BEDA protocol is reliant on physical buttons on two devices.
+These buttons are integral to the protocol because it uses the duration of a pressed button which is used to generate a shared secret.
+However, this method presents a few vulnerabilities to replay attacks because hashes are not encrypted when they are sent out which lets an attacker pose as the sender by sending the hash to the original receiving device.
+
+
 
 \subsection{Magnetometer Pairing}
 Magnetometer pairing is technique of bootstrapping that was designed for smartphones by making use of their magnetometers and a WiFi connection. To initiate the process two devices must be tapped together which should trigger the protocol depending on the threshold that has been set. Once the process has been initiated the devices will go through a standard Diffie-Hellman (DH) Key Exchange. During this process the devices will record their magnetometer readings at the same time. If the procedure fails, the users will be asked to change their device orientation to reinitiate pairing.  In order to foil eavesdroppers, the protocol makes use of the Interlock protocol to bolster its security against passive attacks. The protocol is secure against MiTM attacks because the Interlock the attacker will only receive half of an encrypted message of which is has no key to decrypt. The protocol is secure against Denial of Service (DoS) attacks because it is extremely difficult to overload the magnetometer readings without an abnormally large magnet, in which case the attacker will make themselves known. Magnetometer pairing makes use of the randomness of correlated sensor data by incorporating the lack of temporal or spatial alignment between devices into the encrypted secret. This randomness comes from the strength of the magnetic field at certain position, ambient noise, and device orientation.
